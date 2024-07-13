@@ -3,6 +3,7 @@
 This project provides a weather forecast using an API key in Django. It fetches the current weather data for a specified location using the Weather API and displays it on the website.
 
 But here in my code, just i am checking place by giving latitude and longitude.
+You can check any type of data in weather report by modifying the code.
 
 
 ## Setup
