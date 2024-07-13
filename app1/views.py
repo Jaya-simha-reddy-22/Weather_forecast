@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 import requests
 from django.views.decorators.csrf import csrf_exempt
+from decouple import config
 
 @csrf_exempt
 def weather_forecast(request):
@@ -11,7 +12,8 @@ def weather_forecast(request):
         latitude = request.POST.get("latitude")
         longitude = request.POST.get("longitude")
         print(latitude,longitude)
-        api_key = '52c460dd4fd8ab2bb27c5c38b57719ef'
+        api_key = config('weather_api_key')
+        print(api_key)
         url = f'https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={api_key}'
         response = requests.get(url)
         data = response.json()
